@@ -139,9 +139,13 @@ onMsg.addListener(
             filename = $('.luoo-player .track-name').text() + ' - ' + $('.luoo-player .artist').text();
           }
       }
-	  
+
       if(!filename) {
         filename = filenamep.exec(url);
+      //grep result is empty, set filename is null for ignoring the work round
+      if (filename[0] == '') {
+          filename = null;
+        }
       } else {
         filename = $.trim(filename) + '.' + request.format;
       }
@@ -151,7 +155,7 @@ onMsg.addListener(
 	  
       // chrome doesn't support download attribute for cross-site request, 
       // so use the code below to work around
-      if (url !== window.currentMusicUrl) {
+      if (filename !=null && url !== window.currentMusicUrl) {
         var xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
         xhr.responseType = 'blob';
