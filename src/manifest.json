@@ -3,7 +3,7 @@
   "version": "1.7.7",
   "description": "__MSG_description__",
   "manifest_version": 2,
-  "permissions": ["webRequest", "activeTab","tabs", "webRequestBlocking",
+  "permissions": ["webRequest", "activeTab","tabs", "webRequestBlocking","downloads",
                   "<all_urls>"],
   "background": {
     "scripts": ["background.js"]
